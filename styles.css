@@ -19,3 +19,10 @@
 .audio-reel{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:24px;background:radial-gradient(circle,#3a0b14,#080a0d 65%);padding:25px;text-align:center}.audio-disc{width:190px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;border:9px solid #171b20;background:repeating-radial-gradient(circle,#111 0 4px,#292d32 5px 7px);box-shadow:0 0 35px #ff183055;color:#ff1830;font-size:60px}.audio-reel strong{font:15px Orbitron}.audio-reel audio{width:100%;max-width:330px}
 .field-hint{display:block;color:#82909a;font-size:11px;margin-top:6px}
 @media(max-width:760px){.reels-section{padding:18px 10px 24px}.reel-head-actions{gap:8px}.reel-head-actions .live-tag{font-size:8px}.reel-head-actions .red-btn{font-size:9px;padding:7px 9px}.reel-feed{height:calc(100dvh - 255px);min-height:470px;max-height:760px;padding:2px 0 14px;gap:15px}.reel-post{width:min(100%,430px);flex-basis:calc(100dvh - 285px);min-height:450px}.reel-media{border-radius:8px}.reel-caption{left:14px;right:68px;bottom:16px}.reel-caption p{font-size:14px}.reel-rail{right:8px;bottom:18px;gap:15px}.reel-rail button{font-size:24px}.reel-post-footer{font-size:8px}}
+
+/* SOCIAL ACCESS — botón rojo debajo de AJUSTES */
+.sidebar nav .social-trigger{display:grid;place-items:center;width:34px;height:34px;padding:0;margin:12px 0 0 13px;border:1px solid var(--red);border-radius:50%;background:radial-gradient(circle,#ff1830 0 24%,#5b000b 48%,#090c10 72%);box-shadow:0 0 10px #ff183088,inset 0 0 8px #ff183066;cursor:pointer;transition:.2s}
+.sidebar nav .social-trigger span{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 10px var(--red)}
+.sidebar nav .social-trigger:hover{transform:scale(1.12);box-shadow:0 0 18px var(--red)}
+.social-box .social-link{display:block;margin:14px 0;padding:13px 15px;border:1px solid var(--red);background:#16070b;color:var(--text);font:600 12px Orbitron;letter-spacing:.5px;transition:.2s}
+.social-box .social-link:hover{background:#3a0912;box-shadow:0 0 14px #ff183066;color:#fff}
