@@ -20,9 +20,18 @@
 .field-hint{display:block;color:#82909a;font-size:11px;margin-top:6px}
 @media(max-width:760px){.reels-section{padding:18px 10px 24px}.reel-head-actions{gap:8px}.reel-head-actions .live-tag{font-size:8px}.reel-head-actions .red-btn{font-size:9px;padding:7px 9px}.reel-feed{height:calc(100dvh - 255px);min-height:470px;max-height:760px;padding:2px 0 14px;gap:15px}.reel-post{width:min(100%,430px);flex-basis:calc(100dvh - 285px);min-height:450px}.reel-media{border-radius:8px}.reel-caption{left:14px;right:68px;bottom:16px}.reel-caption p{font-size:14px}.reel-rail{right:8px;bottom:18px;gap:15px}.reel-rail button{font-size:24px}.reel-post-footer{font-size:8px}}
 
-/* SOCIAL ACCESS — botón rojo debajo de AJUSTES */
-.sidebar nav .social-trigger{display:grid;place-items:center;width:34px;height:34px;padding:0;margin:12px 0 0 13px;border:1px solid var(--red);border-radius:50%;background:radial-gradient(circle,#ff1830 0 24%,#5b000b 48%,#090c10 72%);box-shadow:0 0 10px #ff183088,inset 0 0 8px #ff183066;cursor:pointer;transition:.2s}
-.sidebar nav .social-trigger span{width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 10px var(--red)}
-.sidebar nav .social-trigger:hover{transform:scale(1.12);box-shadow:0 0 18px var(--red)}
-.social-box .social-link{display:block;margin:14px 0;padding:13px 15px;border:1px solid var(--red);background:#16070b;color:var(--text);font:600 12px Orbitron;letter-spacing:.5px;transition:.2s}
-.social-box .social-link:hover{background:#3a0912;box-shadow:0 0 14px #ff183066;color:#fff}
+
+/* NEURA // CYBERPUNK TELESCOPIC SOCIAL ACCESS — conserva su posición bajo AJUSTES */
+.sidebar .social-trigger{position:relative;display:grid;place-items:center;width:42px;height:42px;min-width:42px;margin:10px 0 0 22px;padding:0;border-radius:50%;border:1px solid #8e9aa3;background:radial-gradient(circle at 35% 28%,#56616a 0,#20272d 28%,#080b0e 67%,#020304 100%);box-shadow:inset 0 1px 3px #ffffff55,inset 0 -3px 7px #000,0 0 8px #ff183055,0 0 15px #ff183022;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.sidebar .social-trigger:before,.sidebar .social-trigger:after{content:"";position:absolute;pointer-events:none}
+.sidebar .social-trigger:before{inset:6px;border:1px solid #d2d9de;border-radius:50%;box-shadow:0 0 5px #ff1830, inset 0 0 5px #ff183044}
+.sidebar .social-trigger:after{inset:1px;border:1px solid #ff1830;border-radius:50%;clip-path:polygon(0 0,38% 0,38% 12%,12% 12%,12% 38%,0 38%,0 0,62% 0,100% 0,100% 38%,88% 38%,88% 12%,62% 12%,62% 0,100% 62%,100% 100%,62% 100%,62% 88%,88% 88%,88% 62%,100% 62%,0 62%,12% 62%,12% 88%,38% 88%,38% 100%,0 100%)}
+.sidebar .social-trigger span{position:relative;z-index:1;width:5px;height:5px;border-radius:50%;background:#ff1830;box-shadow:0 0 5px 2px #ff1830,0 0 12px #ff1830}
+.sidebar .social-trigger:hover{transform:scale(1.08);box-shadow:inset 0 1px 3px #ffffff77,0 0 10px #ff1830,0 0 22px #ff183077}
+.sidebar .social-trigger:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.social-box{max-width:440px}
+.social-intro{color:#87949d;font:11px Orbitron;letter-spacing:1px;margin:0 0 20px}
+.social-link{display:flex;align-items:center;gap:12px;margin:11px 0;padding:14px 15px;border:1px solid #ff183077;background:linear-gradient(110deg,#25070d,#090d11);font:700 12px Orbitron;letter-spacing:.5px;box-shadow:inset 0 0 15px #ff183014;transition:.2s}
+.social-link:hover{border-color:#ff1830;box-shadow:0 0 15px #ff183044;transform:translateX(3px)}
+.social-link span{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#1877f2;color:white;font:bold 20px Arial;letter-spacing:0}
+.social-link b{margin-left:auto;color:#ff1830;font-size:18px}
