@@ -1,0 +1,15 @@
+const cards=[...document.querySelectorAll('.album-card')];
+const title=document.getElementById('trackTitle'), artist=document.getElementById('trackArtist'), cover=document.getElementById('nowCover'), duration=document.getElementById('duration'), progress=document.getElementById('progress'), playBtn=document.getElementById('playBtn'), currentTime=document.getElementById('currentTime');
+let active=2, playing=true, elapsed=154;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}
+function fmt(s){return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`}
+function selectTrack(i){active=(i+cards.length)%cards.length;const c=cards[active];cards.forEach(x=>x.classList.remove('playing'));c.classList.add('playing');title.textContent=c.dataset.title;artist.textContent=c.dataset.artist;cover.style.backgroundImage=`url('${c.dataset.cover}')`;duration.textContent=c.dataset.time;const [m,s]=c.dataset.time.split(':').map(Number);elapsed=0;progress.value=0;currentTime.textContent='00:00';playing=true;playBtn.textContent='Ⅱ';toast(`REPRODUCIENDO: ${c.dataset.title.toUpperCase()}`)}
+cards.forEach((c,i)=>c.querySelector('.cover').addEventListener('click',()=>selectTrack(i)));
+playBtn.addEventListener('click',()=>{playing=!playing;playBtn.textContent=playing?'Ⅱ':'▶';toast(playing?'REPRODUCCIÓN ACTIVA':'PAUSA')});
+document.getElementById('nextBtn').addEventListener('click',()=>selectTrack(active+1));document.getElementById('prevBtn').addEventListener('click',()=>selectTrack(active-1));
+setInterval(()=>{if(!playing)return;const [m,s]=duration.textContent.split(':').map(Number),total=m*60+s;elapsed=Math.min(total,elapsed+1);progress.value=elapsed/total*100;currentTime.textContent=fmt(elapsed);if(elapsed>=total)selectTrack(active+1)},1000);
+progress.addEventListener('input',()=>{const [m,s]=duration.textContent.split(':').map(Number);elapsed=Math.round((m*60+s)*progress.value/100);currentTime.textContent=fmt(elapsed)});
+document.getElementById('postForm').addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('postInput');const value=input.value.trim();if(!value)return;const article=document.createElement('article');article.className='post';article.innerHTML=`<div class="avatar">Y</div><div class="post-body"><div class="post-meta"><b>YOU / SIGNAL</b><time>ahora</time></div><small>@neural_user</small><p></p></div>`;article.querySelector('p').textContent=value;document.getElementById('feed').prepend(article);input.value='';toast('SEÑAL PUBLICADA EN LA RED')});
+document.getElementById('menuToggle').addEventListener('click',()=>document.getElementById('sidebar').classList.toggle('open'));
+document.getElementById('searchBtn').addEventListener('click',()=>{const q=prompt('BUSCAR EN NEURA:');if(q)toast(`BUSCANDO: ${q.toUpperCase()}`)});
+document.querySelectorAll('.side-nav a,.topnav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('sidebar').classList.remove('open')));
